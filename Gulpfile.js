@@ -1,6 +1,7 @@
 var gulp = require('gulp');
+var Server = require('karma').Server;
 
-gulp.task('default', ['test','express'], function() {
+gulp.task('default', ['express'], function() {
 	
 });
 
@@ -11,6 +12,9 @@ gulp.task('express', function() {
 	app.listen(process.env.PORT || 3000);
 });
 
+/**
+ * Run test once and exit
+ */
 gulp.task('test', function (done) {
   new Server({
     configFile: __dirname + '/karma.conf.js',
